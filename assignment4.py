@@ -1,112 +1,208 @@
-# #Problem1
+#Problem1
 
-# class Product:
-#     count = 0
-#     def __init__(self,name,price):
-#         self.name = name
-#         self.price = price
-#         Product.count+=1
+class Product:
+    count = 0
+    def __init__(self,name,price):
+        self.name = name
+        self.price = price
+        Product.count+=1
 
-#     def get_info(self):
-#         print(self.name,self.price)
+    def get_info(self):
+        print(self.name,self.price)
 
-#     @classmethod
-#     def get_count(cls):
-#         print(cls.count)
+    @classmethod
+    def get_count(cls):
+        print(cls.count)
 
-#     @staticmethod
-#     def calc_discount(price,discount):
-#         final_price = price - (discount*price/100)
-#         print(final_price)
+    @staticmethod
+    def calc_discount(price,discount):
+        final_price = price - (discount*price/100)
+        print(final_price)
 
 
-# p1 = Product("Mobile",200)
-# p2 = Product("Laptop",600)
-# p3 = Product("CPU",450)
-# p1.calc_discount(p1.price,20)
-# p1.get_info()
-# p1.get_count()
+p1 = Product("Mobile",200)
+p2 = Product("Laptop",600)
+p3 = Product("CPU",450)
+p1.calc_discount(p1.price,20)
+p1.get_info()
+p1.get_count()
 
-# #Q1
-# class BankAccount:
-#     def __init__(self, account_number, owner_name, balance):
-#         self.account_number = account_number
-#         self.owner_name = owner_name
-#         self.balance = balance
+#Q1
+class BankAccount:
+    def __init__(self, account_number, owner_name, balance):
+        self.account_number = account_number
+        self.owner_name = owner_name
+        self.balance = balance
 
-#     def deposit(self, deposit):
-#         self.balance += deposit
+    def deposit(self, deposit):
+        self.balance += deposit
 
-#     def withdraw(self,withdraw):
-#         self.balance -= withdraw
+    def withdraw(self,withdraw):
+        self.balance -= withdraw
 
-#     def check_balance(self):
-#         print(self.owner_name,self.balance)
+    def check_balance(self):
+        print(self.owner_name,self.balance)
 
-# b1 = BankAccount("234343414","Hitesh",30000)
-# b1.check_balance()
-# b1.deposit(10000)
-# b1.check_balance()
-# b1.withdraw(5000)
-# b1.check_balance()
+b1 = BankAccount("234343414","Hitesh",30000)
+b1.check_balance()
+b1.deposit(10000)
+b1.check_balance()
+b1.withdraw(5000)
+b1.check_balance()
 
-#Q2
-# class Book:
-#     def __init__(self, title, author, reviews):
-#         self.title = title
-#         self.author = author
-#         self.reviews = [reviews]
+Q2
+class Book:
+    def __init__(self, title, author, reviews):
+        self.title = title
+        self.author = author
+        self.reviews = [reviews]
 
-#     def add_review(self,review):
-#        self.reviews.append(review)
+    def add_review(self,review):
+       self.reviews.append(review)
 
-#     def count_review(self):
-#         print(len(self.reviews))
+    def count_review(self):
+        print(len(self.reviews))
 
-#     def display_review(self):
-#         print(self.reviews)
+    def display_review(self):
+        print(self.reviews)
 
-# b1 = Book("Abc","Hitesh","Good")
-# b1.add_review("Bad")
-# b1.display_review()
-# b1.count_review()
+b1 = Book("Abc","Hitesh","Good")
+b1.add_review("Bad")
+b1.display_review()
+b1.count_review()
 
-# #Q3
-# class Student:
-#     def __init__(self,name,roll_no,marks):
-#         self.__name = name
-#         self.__roll_no = roll_no
-#         self.__marks= marks
+#Q3
+class Student:
+    def __init__(self,name,roll_no,marks):
+        self.__name = name
+        self.__roll_no = roll_no
+        self.__marks= marks
 
-#     def set_marks(self,marks):
-#         if marks >= 0:
-#             self.__marks = marks
+    def set_marks(self,marks):
+        if marks >= 0:
+            self.__marks = marks
 
-#     def set_roll_no(self,roll_no):
-#             if roll_no > 0 and roll_no <= 100:
-#                 self.__roll_no = roll_no
+    def set_roll_no(self,roll_no):
+            if roll_no > 0 and roll_no <= 100:
+                self.__roll_no = roll_no
 
-#     def set_name(self,name):
-#             if name != None or name != "":
-#                 self.__name = name
+    def set_name(self,name):
+            if name != None or name != "":
+                self.__name = name
 
-# #Q4
+#Q4
 
-# class Shape():
-#     def area():
-#         pass
+class Shape():
+    def area():
+        pass
 
-# class Circle(Shape):
-#     def area():
-#         print("pi*r^2")
+class Circle(Shape):
+    def area():
+        print("pi*r^2")
 
-# class Rectangle(Shape):
-#     def area():
-#         print("Side ^ 2")
+class Rectangle(Shape):
+    def area():
+        print("Side ^ 2")
 
-# class Triangle(Shape):
-#     def area():
-#         print("0.5 * base * height")
+class Triangle(Shape):
+    def area():
+        print("0.5 * base * height")
+
+#Q5
+class Vehicle:
+    def __init__(self, brand, model):
+        self.brand = brand
+        self.model = model
+
+class Car(Vehicle):
+    def __init__(self, brand, model, seats):
+        super().__init__(brand, model)
+        self.seats = seats
+
+class Bike(Vehicle):
+    def __init__(self, brand, model, engine_cc):
+        super().__init__(brand, model)
+        self.engine_cc = engine_cc
+
+#Q6
+from abc import ABC, abstractmethod
+class Employee(ABC):
+    @abstractmethod
+    def calculate_salary(self):
+        pass
+
+class Intern(Employee):
+    def calculate_salary(self):
+        print("I am Intern")
+
+class FullTimeEmployee(Employee):
+    def calculate_salary(self):
+        print("I am FullTimeEmployee")
+
+class ContractEmployee(Employee):
+    def calculate_salary(self):
+        print("I am ContractEmployee")
+
+
+i1 = Intern()
+i1.calculate_salary()
+f1 = FullTimeEmployee()
+f1.calculate_salary()
+c1 = ContractEmployee()
+c1.calculate_salary()
+
+#Q7
+class Person():
+    def __init__(self, name):
+        self.name = name
+        print("1const")
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+        print("2const")
+
+    def __init__(self, name, age, address):
+        self.name = name
+        self.age = age
+        self.address = address
+        print("3const")
+
+p3 = Person("Hitesh",26,"Dombivli")
+
+#Q8
+class Player:
+    player_count = 0
+    def __init__(self, name, level):
+        self.name = name
+        self.level = level
+        Player.player_count += 1
+        print(Player.player_count)
+
+p1 = Player("Hitesh",8)
+p2 = Player("Monu",2)
+
+#Q9
+class Herbivore:
+    def veg(self):
+        print("Veg")
+
+class Carnivore:
+    def non_veg(self):
+        print("Non-veg")
+
+class Omnivore:
+    def veg_non_veg(self):
+        print("Veg & Non-veg")
+
+class Bear(Herbivore,Carnivore,Omnivore):
+    def __init__(self):
+        super().__init__()
+
+b1 = Bear()
+b1.veg()
+b1.non_veg()
+b1.veg_non_veg()
 
 #Q10
 class Message:
