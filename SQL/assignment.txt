@@ -1,0 +1,37 @@
+#Q1
+select * from employee;
+
+#Q2
+select FirstName,LastName,Salary from employee;
+
+#Q3
+select * from employee
+where department like "IT" ;
+
+#Q4
+select * from employee
+where salary > 6000;
+
+#Q5
+select * from employee
+order by HireDate desc;
+
+#Q6
+select distinct department from employee;
+
+#Q7
+select * from employee
+where FirstName like "A%";
+
+#Q8
+select * from employee
+where salary >= 4000 and salary <= 7000 ;
+
+#Q9
+select avg(salary) from employee;
+
+
+#Q10
+select department,count(department) from employee
+group by department
+having count(department) > 3;
